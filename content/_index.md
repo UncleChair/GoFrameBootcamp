@@ -1,17 +1,20 @@
 ---
-title: My Site
-toc: false
+title: Hextra Theme
+layout: hextra-home
 ---
 
-This is the landing page.
+<div class="hx-mt-6 hx-mb-6">
+{{< hextra/hero-headline >}}
+  Build Web Server&nbsp;<br class="sm:hx-block hx-hidden" />with GoFrame
+{{< /hextra/hero-headline >}}
+</div>
 
-## Explore
+<div class="hx-mb-12">
+{{< hextra/hero-subtitle >}}
+GoFrame is a modular, powerful, high-performance&nbsp;<br class="sm:hx-block hx-hidden" />and enterprise-class application development framework of Golang.
+{{< /hextra/hero-subtitle >}}
+</div>
 
-{{< cards >}}
-  {{< card link="docs" title="Docs" icon="book-open" >}}
-  {{< card link="about" title="About" icon="user" >}}
-{{< /cards >}}
-
-## Documentation
-
-For more information, visit [Hextra](https://imfing.github.io/hextra).
+<div class="hx-mb-6">
+{{< hextra/hero-button text="Get Started" link="docs" >}}
+</div>
