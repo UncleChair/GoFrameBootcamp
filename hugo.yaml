@@ -37,6 +37,16 @@ menu:
       params:
         icon: github
 
+defaultContentLanguage: en
+languages:
+  en:
+    languageName: English
+    weight: 1
+  zh-cn:
+    languageName: 简体中文
+    languageCode: zh-CN
+    weight: 2
+
 params:
   navbar:
     displayTitle: true
