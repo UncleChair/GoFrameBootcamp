@@ -18,8 +18,8 @@ markup:
 
 menu:
   main:
-    - name: Docs
-      pageRef: /docs
+    - name: WebServer
+      pageRef: /web-server/
       weight: 1
     - name: About
       pageRef: /about

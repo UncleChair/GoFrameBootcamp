@@ -1,5 +1,5 @@
 ---
-title: Hextra Theme
+title: Home
 layout: hextra-home
 ---
 
@@ -16,5 +16,5 @@ GoFrame is a modular, powerful, high-performance&nbsp;<br class="sm:hx-block hx-
 </div>
 
 <div class="hx-mb-6">
-{{< hextra/hero-button text="Get Started" link="docs" >}}
+{{< hextra/hero-button text="Get Started" link="web-server" >}}
 </div>

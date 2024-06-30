@@ -1,11 +1,11 @@
 ---
-title: Documentation
-next: first-page
+title: Introduction
+type: docs
+prev: /
+next: installation/
 ---
 
 This is a demo of the theme's documentation layout.
-
-## Hello, World!
 
 ```go {filename="main.go"}
 package main

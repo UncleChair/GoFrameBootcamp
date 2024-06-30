@@ -1,5 +1,5 @@
 ---
-title: Hextra Theme
+title: Home
 layout: hextra-home
 ---
 
@@ -16,5 +16,5 @@ GoFrame是一款模块化、高性能、企业级的Go基础开发框架。
 </div>
 
 <div class="hx-mb-6">
-{{< hextra/hero-button text="开始教程" link="docs" >}}
+{{< hextra/hero-button text="开始教程" link="web-server" >}}
 </div>
