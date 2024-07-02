@@ -1,6 +1,6 @@
 ---
 title: Additional Resources
-weight: 8
+weight: 7
 ---
 
 ## Details

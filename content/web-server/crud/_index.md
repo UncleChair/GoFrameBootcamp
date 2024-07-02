@@ -1,6 +1,6 @@
 ---
 title: Start with CRUD
-weight: 4
+weight: 3
 ---
 
 ## Details
