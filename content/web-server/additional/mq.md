@@ -1,7 +1,7 @@
 ---
 title: Message Queue
 type: docs
-weight: 4
+weight: 5
 ---
 
 ## MQ

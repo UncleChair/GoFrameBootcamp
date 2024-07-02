@@ -1,6 +1,6 @@
 ---
 title: Conclusion
-weight: 6
+weight: 7
 ---
 
 ## Details

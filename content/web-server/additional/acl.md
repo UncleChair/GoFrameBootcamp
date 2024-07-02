@@ -1,7 +1,7 @@
 ---
 title: Access Control
 type: docs
-weight: 2
+weight: 3
 ---
 
 ## Casbin

@@ -1,7 +1,7 @@
 ---
 title: Mail Server
 type: docs
-weight: 3
+weight: 4
 ---
 
 ## Go-mail

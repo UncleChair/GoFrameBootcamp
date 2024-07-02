@@ -1,7 +1,7 @@
 ---
 title: Database Schema Control
 type: docs
-weight: 1
+weight: 2
 ---
 
 ## Atlas
