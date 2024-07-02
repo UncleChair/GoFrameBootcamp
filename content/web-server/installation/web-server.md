@@ -1,7 +1,7 @@
 ---
-title: GoFrame
+title: Go
 type: docs
 weight: 1
 ---
 
-## Goframe
+## Go

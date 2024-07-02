@@ -1,7 +1,7 @@
 ---
-title: GoFrame
+title: Daemon
 type: docs
 weight: 1
 ---
 
-## Goframe
+## Daemon

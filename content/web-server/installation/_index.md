@@ -1,6 +1,6 @@
 ---
 title: Installation
-type: docs
+weight: 2
 ---
 
 Pages can be organized into folders.

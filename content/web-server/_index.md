@@ -1,8 +1,7 @@
 ---
-title: Introduction
-type: docs
+title: Web Server
 prev: /
-next: installation/
+next: introduction/
 ---
 
 This is a demo of the theme's documentation layout.
