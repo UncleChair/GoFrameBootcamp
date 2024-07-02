@@ -1,7 +1,7 @@
 ---
 title: GoFrame
 type: docs
-weight: 1
+weight: 2
 ---
 
 ## Goframe
