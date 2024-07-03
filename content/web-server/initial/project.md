@@ -67,6 +67,7 @@ There are several command for code generation that would be used in our bootcamp
 - `gf gen ctrl`: Generate controller
 - `gf gen service`: Generate service interface
 - `gf gen dao`: Generate database related code
+
 Typically, we only need to add `dao` related code configurations, since it requires link to the database.
 
 {{< tabs items="MariaDB" >}}
