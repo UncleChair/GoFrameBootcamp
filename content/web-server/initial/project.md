@@ -117,7 +117,7 @@ server:
   swaggerPath: "/swagger"
 
 logger:
-  level : "all"
+  level: "all"
   stdout: true
 ```
 We still need to modify `server` and `logger` configurations and add `database` configuration.
@@ -150,7 +150,7 @@ For `logger`, we could add a path to output log file:
 ```yaml {filename="manifest/config/config.yaml"}
 logger:
   path: "/var/log/ServerLog"
-  level : "all"
+  level: "all"
   stdout: true
 ```
 
