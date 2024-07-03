@@ -5,26 +5,31 @@
 # Outline
 
 Content todo list:
-- [ ] Chapter 1: Introduction
-    - [ ] GoFrame
-    - [ ] Web Server
-- [ ] Chapter 2: Installation
-    - [ ] Go
-    - [ ] Docker
-    - [ ] GoFrame CLI
-    - [ ] MariaDB
+- [x] Chapter 1: Installation
+    - [x] Go
+    - [x] Docker
+    - [x] GoFrame CLI
+    - [x] Database
+        - [x] MariaDB
+- [x] Chapter 2: Initialization
+    - [ ] Database
+    - [ ] Project
 - [ ] Chapter 3: Start with CRUD
+    - [ ] Create a message
+    - [ ] Retrieve a message
+    - [ ] Update a message
+    - [ ] Delete a message
 - [ ] Chapter 4: Authentication
     - [ ] JWT
-- [ ] Chapter 5: Access Control
-    - [ ] Casbin
-- [ ] Chapter 6: Deploying
+- [ ] Chapter 5: Deploying
     - [ ] Daemon
     - [ ] Nginx
     - [ ] Docker
-- [ ] Chapter 7: Conclusion
-- [ ] Chapter 8: Additional Resources
+- [ ] Chapter 6: Conclusion
+- [ ] Chapter 5: Additional Resources
+    - [ ] Design Methodology
     - [ ] Database Schema Control
+    - [ ] Access Control
     - [ ] Mail Server
     - [ ] Message Queue
 
