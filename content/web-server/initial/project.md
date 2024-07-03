@@ -1,7 +1,7 @@
 ---
 title: Project
 type: docs
-weight: 1
+weight: 2
 ---
 
 With GoFrame CLI tools, we could create a new project quickly and then configure the compose file for docker.

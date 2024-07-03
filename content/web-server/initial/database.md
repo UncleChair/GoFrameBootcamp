@@ -1,7 +1,7 @@
 ---
 title: Database
 type: docs
-weight: 2
+weight: 1
 ---
 
 ## Initial
