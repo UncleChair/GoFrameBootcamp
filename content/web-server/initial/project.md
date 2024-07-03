@@ -28,8 +28,8 @@ Configuration file for CLI tool is located in `hack` folder. There is a config f
 
 #### Hot reload
 
-Go is a compiled language, so we need to use hot reload after we change any code. There is a useful command called `gf run`, add this command settings to `hack/config.yaml` bellow `gfcli`:
-```yaml
+Go is a compiled language, so we need to use hot reload after we change any code. There is a useful command called `gf run`, add this command settings bellow `gfcli`:
+```yaml {filename="hack/config.yaml"}
 gfcli:
   run:
     path:  "bin"
@@ -39,7 +39,7 @@ gfcli:
 - **args**: Custom arguments for `gf run`
 
 {{% details title="Additional config for `gf run`" closed="true" %}}
-```yaml
+```yaml {filename="hack/config.yaml"}
 gfcli:
   run:
     path:  "bin"
@@ -58,8 +58,8 @@ There are several command for code generation that would be used in our bootcamp
 - `gf gen ctrl`: Generate controller
 - `gf gen service`: Generate service interface
 - `gf gen dao`: Generate database related code
-Typically, we only need to add `dao` related code config to `hack/config.yaml`, since it requires link to the database.
-```yaml
+Typically, we only need to add `dao` related code configurations, since it requires link to the database.
+```yaml {filename="hack/config.yaml"}
 gfcli:
   gen:
     dao:
@@ -68,8 +68,8 @@ gfcli:
 Keep it blank since we have not configure our database yet. We may deal with it later.
 
 #### Build project
-As we mentioned before, Go is a compiled language. So we need to build our project after we finish all the development. The command for this is `gf build`, we could also add some config to `hack/config.yaml`:
-```yaml
+As we mentioned before, Go is a compiled language. So we need to build our project after we finish all the development. The command for this is `gf build`:
+```yaml {filename="hack/config.yaml"}
 gfcli:
   build:
     arch: "all"
@@ -82,9 +82,8 @@ gfcli:
 - **output**: Set the output path for built binary file
 - **dumpEnv**: Display environment variables when building
 
-
-{{% details title="Full config file after all settings" closed="true" %}}
-```yaml
+{{% details title="Full config for CLI" closed="true" %}}
+```yaml {filename="hack/config.yaml"}
 gfcli:
   docker:
     build: "-a amd64 -s linux -p temp -ew"
@@ -108,8 +107,94 @@ gfcli:
 ```
 {{% /details %}}
 
-{{< callout type="info" >}}
-For simplicity, we only use part of the config settings for CLI tools, you could find more details in [official documentation](https://goframe.org/pages/viewpage.action?pageId=1114260).
-{{< /callout >}}
-
 ### Project
+
+Similar to CLI tool configuration, our project also have its own configuration file in `manifest/config` folder by default. It contains some initial settings for our application:
+```yaml {filename="manifest/config/config.yaml"}
+server:
+  address:     ":8000"
+  openapiPath: "/api.json"
+  swaggerPath: "/swagger"
+
+logger:
+  level : "all"
+  stdout: true
+```
+We still need to modify `server` and `logger` configurations and add `database` configuration.
+
+#### Server
+For now, the configuration file has declared the `address`, which is used to set listening port. You could change it to `:8080` or any other port with no conflict.
+
+The `openapiPath` and `swaggerPath` are used to set the URI of OpenAPI and Swagger, you may find it useful to check the auto-generated API documentation.
+
+Besides these, we could still add some configurations for the server:
+```yaml {filename="manifest/config/config.yaml"}
+server:
+  address: ":8000"
+  openapiPath: "/api.json"
+  swaggerPath: "/swagger"
+  graceful: true
+  gracefulTimeout: 10
+  errorLogEnabled: true
+  errorLogPattern: "error-{Y-m-d}.log"
+```
+- **graceful**: Whether to enable graceful functions.
+- **gracefulTimeout**: The timeout for request using graceful functions.
+- **errorLogEnabled**: Whether to enable error log, default to `true`.
+- **errorLogPattern**: The pattern of error log.
+
+#### Logger
+
+For `logger`, we could add a path to output log file:
+
+```yaml {filename="manifest/config/config.yaml"}
+logger:
+  path: "/var/log/ServerLog"
+  level : "all"
+  stdout: true
+```
+
+If `path` is not set, the log will only be output to stdout.
+
+#### Database
+
+Although we have not configured the database, we could add logger to the database first:
+```yaml {filename="manifest/config/config.yaml"}
+database:
+  logger:
+    path: "/var/log/ServerLog"
+    file: "database-{Y-m-d}.log"
+    level: "all"
+    stdout: false
+```
+
+{{% details title="Full config for project" closed="true" %}}
+```yaml {filename="manifest/config/config.yaml"}
+server:
+  address: ":8000"
+  openapiPath: "/api.json"
+  swaggerPath: "/swagger"
+  graceful: true
+  gracefulTimeout: 10
+  errorLogEnabled: true
+  errorLogPattern: "error-{Y-m-d}.log"
+logger:
+  path: "/var/log/ServerLog"
+  level : "all"
+  stdout: true
+database:
+  logger:
+    path: "/var/log/ServerLog"
+    file: "database-{Y-m-d}.log"
+    level: "all"
+    stdout: false
+```
+{{% /details %}}
+
+{{< callout type="info" >}}
+For simplicity, we only use part of the config settings for CLI tools and project, you could find more details here:
+- [CLI tools](https://goframe.org/pages/viewpage.action?pageId=1114260)
+- [Http server](https://github.com/gogf/gf/blob/master/net/ghttp/ghttp_server_config.go)
+- [Logger](https://github.com/gogf/gf/blob/master/os/glog/glog_logger_config.go)
+- [Database](https://github.com/gogf/gf/blob/master/database/gdb/gdb_core_config.go)
+{{< /callout >}}
