@@ -180,7 +180,7 @@ server:
   errorLogPattern: "error-{Y-m-d}.log"
 logger:
   path: "/var/log/ServerLog"
-  level : "all"
+  level: "all"
   stdout: true
 database:
   logger:
