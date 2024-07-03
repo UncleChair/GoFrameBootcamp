@@ -12,23 +12,23 @@ Content todo list:
     - [x] Database
         - [x] MariaDB
 - [x] Chapter 2: Initialization
-    - [ ] Database
-    - [ ] Project
-- [ ] Chapter 3: Start with CRUD
+    - [x] Database
+    - [x] Project
+- [ ] Chapter 3: Authentication
+    - [ ] JWT
+- [ ] Chapter 4: Start with CRUD
     - [ ] Create a message
     - [ ] Retrieve a message
     - [ ] Update a message
     - [ ] Delete a message
-- [ ] Chapter 4: Authentication
-    - [ ] JWT
 - [ ] Chapter 5: Deploying
     - [ ] Daemon
-    - [ ] Nginx
     - [ ] Docker
+    - [ ] Nginx
 - [ ] Chapter 6: Conclusion
-- [ ] Chapter 5: Additional Resources
+- [ ] Chapter 7: Additional Resources
     - [ ] Design Methodology
-    - [ ] Database Schema Control
+    - [x] Database Schema Control
     - [ ] Access Control
     - [ ] Mail Server
     - [ ] Message Queue
