@@ -37,6 +37,10 @@ env "docker" {
 - **dir**: The migration files directory.
 
 2. Create migrations:
+
+There are some methods to use migrations with existing database in official documentation, but it would be much simple to use an empty database with docker. Just delete the old container and volume created before and run `docker compose up -d --build` without initial database tables.
+
+Then run the following command to create migrations:
 ```bash
 atlas migrate diff initial --env local
 ```
@@ -45,9 +49,7 @@ You will find a `SQL` file and a `sum` file created by atlas in `manifest/databa
 
 3. Apply migration
 
-There are some methods to apply migrations with existing database in official documentation, but it would be much simple to use an empty database with docker. Just delete the old container and volume created before and run `docker compose up -d --build` without initial database tables.
-
-Then you can simple apply the initial database schema with:
+You can simple apply the initial database schema with:
 ```bash
 atlas migrate apply --env local
 ```
