@@ -1,7 +1,8 @@
 ---
 title: Nginx
 type: docs
-weight: 2
+weight: 3
+next: web-server/conclusion/
 ---
 
 ## Nginx

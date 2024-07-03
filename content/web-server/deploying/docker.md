@@ -1,7 +1,7 @@
 ---
 title: Docker
 type: docs
-weight: 3
+weight: 2
 ---
 
 ## Docker
