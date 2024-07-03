@@ -64,14 +64,9 @@ CREATE TABLE IF NOT EXISTS `users`
 (
     `uid` varchar(10) NOT NULL UNIQUE COMMENT 'User Unique ID',
     `username`  varchar(25) NOT NULL UNIQUE COMMENT 'User Name',
-    `email`  varchar(45) NOT NULL UNIQUE COMMENT 'User Email',
     `password`  varchar(45) NOT NULL COMMENT 'User Password',
-    `created_at` datetime DEFAULT NULL COMMENT 'Created Time',
-    `updated_at` datetime DEFAULT NULL COMMENT 'Updated Time',
-    `deleted_at` datetime DEFAULT NULL COMMENT 'Soft deleted Time',
     PRIMARY KEY (`uid`),
     INDEX `idx_username` (`username`),
-    INDEX `idx_email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `messages`
