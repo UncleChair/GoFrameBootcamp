@@ -13,6 +13,16 @@ There are still somethings to do before we adding any features to the project. D
 
 GoFrame has many [supported databases](https://github.com/gogf/gf/tree/master/contrib/drivers). But to use them, you need to introduce driver into your project first.
 
+Install database driver:
+
+{{< tabs items="MySQL / MariaDB" >}}
+{{< tab >}}
+``` bash
+go get -u github.com/gogf/gf/contrib/drivers/mysql/v2
+```
+{{< /tab >}}
+{{< /tabs >}}
+
 Open `main.go` in the project folder with your favorite editor. Add the following import statement:
 
 {{< tabs items="MySQL / MariaDB" >}}
