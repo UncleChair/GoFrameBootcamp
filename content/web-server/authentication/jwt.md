@@ -229,3 +229,21 @@ func Authenticator(ctx context.Context) (interface{}, error) {
 
 ```
 {{% /details %}}
+
+## Test service
+
+Now we have finished JWT middleware service, have a test with it!
+
+There is a controller created by default in `internal/controller/hello` folder, we could just change it to:
+
+```go {filename="internal/controller/hello/hello_v1_hello.go"}
+func (c *ControllerV1) Hello(ctx context.Context, req *v1.HelloReq) (res *v1.HelloRes, err error) {
+	token, _ := service.JWTAuth().LoginHandler(ctx)
+	g.RequestFromCtx(ctx).Response.Writeln(token)
+	return
+}
+```
+
+Open your browser with [http://localhost/hello](http://localhost/hello), you will see the token generated from JWT service.
+
+Save the token for a while, we may use it in the next chapter.
