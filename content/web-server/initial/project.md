@@ -257,7 +257,7 @@ For simplicity, we only use part of the config settings for CLI tools and projec
 ## Run with docker
 
 {{< callout type="warning" >}}
-- In the following steps, we are mounting folders from our local machine to the container, there are some case that the hot reload would not be triggered due to the [WSL problem](https://github.com/microsoft/WSL/issues/4739). Make sure to modify code under WSL when you are using Windows.
+- In the following steps, we are mounting folders from our local machine to the container, there are some case that the hot reload would not be triggered due to the [WSL problem](https://github.com/microsoft/WSL/issues/4739). Make sure to modify code under WSL when you are using Windows, or to be simple, just put all you need into WSL and use your IDE to connect to it.
 - Or you could write your own config to only use built file in the container. Which means the hot reload would be finished by your local machine.
 {{< /callout >}}
 
