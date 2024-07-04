@@ -102,3 +102,28 @@ mysql -u dbadmin -pPassword bootcamp < /var/database/initial.sql
 ```
 {{< /tab >}}
 {{< /tabs >}}
+
+### Insert data
+
+Enter the container and execute the following command to enter your database:
+
+```bash
+mysql -u dbadmin -pPassword bootcamp
+```
+
+Use the following command to insert data to `users` table:
+
+```sql
+INSERT IGNORE INTO `users`(`uid`, `username`, `password`)
+VALUES ('0000000000', 'admin', '123456');
+```
+
+Check the data with:
+
+```sql
+SELECT * FROM `users`;
+```
+
+{{< callout type="info" >}}
+This record is needed for CRUD operations, since we have added `FOREIGN KEY` in `messages` table.
+{{< /callout>}}
