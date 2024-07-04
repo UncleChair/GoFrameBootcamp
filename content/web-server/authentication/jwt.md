@@ -2,6 +2,7 @@
 title: JWT
 type: docs
 weight: 1
+next: web-server/crud/
 ---
 
 Json Web Token (JWT) is wildly used in many web applications. It is status free, low cost and easy to use.
