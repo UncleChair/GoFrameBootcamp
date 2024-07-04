@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `users`
     `username`  varchar(25) NOT NULL UNIQUE COMMENT 'User Name',
     `password`  varchar(45) NOT NULL COMMENT 'User Password',
     PRIMARY KEY (`uid`),
-    INDEX `idx_username` (`username`),
+    INDEX `idx_username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `messages`
