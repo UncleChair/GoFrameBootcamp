@@ -152,6 +152,10 @@ func Authenticator(ctx context.Context) (interface{}, error) {
 }	
 ```
 
+{{< callout type="info" >}}
+Keep these info the same as those created in database initialization part, we would use them in CRUD operations.
+{{< /callout>}}
+
 ### Check full file
 
 {{% details title="Full file of `jwt_auth.go`" closed="true" %}}
