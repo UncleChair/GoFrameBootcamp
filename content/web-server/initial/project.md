@@ -2,7 +2,6 @@
 title: Project
 type: docs
 weight: 2
-next: web-server/authentication/
 ---
 
 With GoFrame CLI tools, we could create a new project quickly and then configure the compose file for docker.
