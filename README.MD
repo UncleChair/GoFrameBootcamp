@@ -30,7 +30,7 @@ Content todo list:
     - [ ] Docker
     - [ ] Nginx
 - [ ] Chapter 6: Conclusion
-- [ ] Chapter 7: Additional Resources
+- [x] Chapter 7: Additional Resources
     - [ ] Design Methodology
     - [x] Database Schema Control
     - [ ] Access Control
