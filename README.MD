@@ -14,9 +14,11 @@ Content todo list:
 - [x] Chapter 2: Initialization
     - [x] Database
     - [x] Project
-- [ ] Chapter 3: Authentication
-    - [ ] JWT
-- [ ] Chapter 4: Start with CRUD
+    - [x] Code
+- [x] Chapter 3: Authentication
+    - [x] JWT
+    - [ ] Session
+- [x] Chapter 4: Start with CRUD
     - [ ] Create a message
     - [ ] Retrieve a message
     - [ ] Update a message
@@ -37,6 +39,7 @@ Content todo list:
 # Contributors
 
 This project exists thanks to all the people who contribute. [[Contributors](https://github.com/UncleChair/GoFrameBootcamp/graphs/contributors)].
+
 <a href="https://github.com/UncleChair/GoFrameBootcamp/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=UncleChair/GoFrameBootcamp" /></a>
 
 
