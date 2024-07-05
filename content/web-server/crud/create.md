@@ -1,7 +1,7 @@
 ---
 title: Create a message
 type: docs
-weight: 1
+weight: 2
 ---
 
 ## Create

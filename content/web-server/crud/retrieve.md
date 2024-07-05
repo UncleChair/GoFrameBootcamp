@@ -1,7 +1,7 @@
 ---
 title: Retrieve a message
 type: docs
-weight: 2
+weight: 3
 ---
 
-## Read
+## Retrieve

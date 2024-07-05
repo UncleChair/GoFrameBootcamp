@@ -1,7 +1,7 @@
 ---
 title: Update a message
 type: docs
-weight: 3
+weight: 5
 ---
 
 ## Update

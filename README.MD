@@ -19,8 +19,10 @@ Content todo list:
     - [x] JWT
     - [ ] Session
 - [x] Chapter 4: Start with CRUD
+    - [ ] Add a controller
     - [ ] Create a message
     - [ ] Retrieve a message
+    - [ ] Add a middleware
     - [ ] Update a message
     - [ ] Delete a message
 - [ ] Chapter 5: Deploying

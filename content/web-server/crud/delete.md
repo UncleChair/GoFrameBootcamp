@@ -1,7 +1,7 @@
 ---
 title: Delete a message
 type: docs
-weight: 4
+weight: 6
 next: web-server/deploying/
 ---
 
