@@ -69,6 +69,24 @@ Those tags seems a little confusing, but don't worry, you will see their functio
 
 ## Generate Controller
 
+Now we could use `gf gen ctrl` to generate controller with those structures declared before:
+
+```
+& gf gen ctrl
+generated: ...\api\hello\hello.go
+generated: ...\api\message\message.go
+generated: internal\controller\message\message.go
+generated: internal\controller\message\message_new.go
+generated: internal\controller\message\message_v1_create_message.go
+done!
+```
+
+And you will see its structure is similar to the `hello` controller auto-generated before.
+
+{{< callout type="info" >}}
+To avoid run this command every time after you changing some code in `api` directory, you could use some auto-run plugin, like `Run on Save` in VSCode.
+{{< /callout>}}
+
 ## Register route
 
 ## Test your result
