@@ -40,7 +40,7 @@ env "docker" {
 - **url**: Your database URL.
 - **dir**: The migration files directory.
 
-### Create migrations:
+### Create migrations
 
 There are some methods to use migrations with existing database in official documentation, but it would be much simple to use an empty database with docker. Just delete the old container and volume created before and run `docker compose up -d --build` without initial database tables.
 
