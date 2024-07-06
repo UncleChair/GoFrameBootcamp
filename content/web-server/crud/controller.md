@@ -58,6 +58,7 @@ type CreateMessageRes struct {
 	g.Meta  `mime:"application/json"`
 	Code    int         `json:"code" v:"required" des:"Status code" eg:"0"`
 	Message string      `json:"message" v:"required" des:"Status message" eg:"Success"`
+	Data    interface{} `json:"data"`
 }
 ```
 
