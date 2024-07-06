@@ -5,4 +5,6 @@ weight: 6
 next: web-server/deploying/
 ---
 
-## Delete
+## Soft delete
+
+## Hard delete
