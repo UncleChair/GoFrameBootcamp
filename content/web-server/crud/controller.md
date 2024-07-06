@@ -50,7 +50,7 @@ import "github.com/gogf/gf/v2/frame/g"
 
 type CreateMessageReq struct {
 	g.Meta  `path:"/" tags:"Message" method:"post" sum:"Create a message"`
-	UserUId string `json:"user_uid" v:"required|length:10" des:"Message sender ID" eg:"0000000000"`
+	UserUId string `json:"user_uid" v:"required|size:10" des:"Message sender ID" eg:"0000000000"`
 	Content string `json:"content" v:"required|length:1,100" des:"Message content" eg:"This is my first message."`
 }
 
@@ -84,9 +84,84 @@ done!
 And you will see its structure is similar to the `hello` controller auto-generated before.
 
 {{< callout type="info" >}}
-To avoid run this command every time after you changing some code in `api` directory, you could use some auto-run plugin, like `Run on Save` in VSCode.
+To avoid run this command every time after changing some code in `api` directory, you could use some auto-run plugin, like `Run on Save` in VSCode.
 {{< /callout>}}
+
+Open the `internal\controller\message\message_v1_create_message.go`, you will see implementation of controller here:
+
+```go
+func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageReq) (res *v1.CreateMessageRes, err error) {
+	return nil, gerror.NewCode(gcode.CodeNotImplemented)
+}
+```
+
+The response is not implemented yet, we may add some code later.
 
 ## Register route
 
+After generate controller, we need to register the route. Open the `cmd.go` in `internal\cmd` folder, the `hello` we used before has been registered here:
+
+```go {filename="internal/cmd/cmd.go"}
+s.Group("/", func(group *ghttp.RouterGroup) {
+	group.Middleware(ghttp.MiddlewareHandlerResponse)
+	group.Bind(
+		hello.NewV1(),
+	)
+})
+```
+
+We could add the `message` similarly:
+
+```go {filename="internal/cmd/cmd.go"}
+s.Group("/message", func(group *ghttp.RouterGroup) {
+	group.Middleware(ghttp.MiddlewareHandlerResponse)
+	group.Bind(
+		message.NewV1(),
+	)
+})
+```
+
+Since the `path` we set before is `/`, we need to add `message` to the route group when registering. You could also set the path in `api` structure to `/message`, and you can ignore the `message` here.
+
+{{% details title="route used for controller if api `path` is set to `/message`" closed="true" %}}
+```go {filename="internal/cmd/cmd.go"}
+s.Group("/", func(group *ghttp.RouterGroup) {
+	group.Middleware(ghttp.MiddlewareHandlerResponse)
+	group.Bind(
+		hello.NewV1(),
+		message.NewV1(),
+	)
+})
+```
+{{% /details %}}
+
 ## Test your result
+
+Good job! You have successfully created your first API and registered the route. Check it in Swagger [here](http://localhost:8000/swagger#tag/Message).
+
+If you have used tools like `Postman`, you could test the API with the following request:
+
+POST `http://localhost:8000/message`
+
+```json
+{
+  "user_uid": "0000000000",
+  "content": "This is my first message."
+}
+```
+
+Or use `curl` to test the API:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/message"
+```
+
+You will see the `Not Implemented` response like this:
+
+```json
+{
+  "code": 58,
+  "message": "Not Implemented",
+  "data": null
+}
+```
