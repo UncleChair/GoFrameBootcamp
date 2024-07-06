@@ -1,7 +1,7 @@
 ---
 title: Retrieve a message
 type: docs
-weight: 3
+weight: 4
 ---
 
 ## Retrieve
