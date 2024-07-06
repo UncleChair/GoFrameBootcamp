@@ -4,4 +4,6 @@ type: docs
 weight: 4
 ---
 
-## Retrieve
+## Get record
+
+## Get relations (experimental)
