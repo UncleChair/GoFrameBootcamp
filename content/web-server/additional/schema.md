@@ -12,7 +12,11 @@ In most cases, database should be designed and created before writing any code. 
 
 Here is an example to introduce versioned workflow with atlas to our `bootcamp` project:
 
-1. Create a `atlas.hcl` file in the root directory:
+{{% steps %}}
+
+### Add configurations
+
+Create a `atlas.hcl` file in the root directory:
 ```hcl {filename="atlas.hcl"}
 env "local" {
   src = "file://manifest/database/tables/"
@@ -36,7 +40,7 @@ env "docker" {
 - **url**: Your database URL.
 - **dir**: The migration files directory.
 
-2. Create migrations:
+### Create migrations:
 
 There are some methods to use migrations with existing database in official documentation, but it would be much simple to use an empty database with docker. Just delete the old container and volume created before and run `docker compose up -d --build` without initial database tables.
 
@@ -47,7 +51,7 @@ atlas migrate diff initial --env local
 
 You will find a `SQL` file and a `sum` file created by atlas in `manifest/database/migrations` folder.
 
-3. Apply migration
+### Apply migration
 
 You can simple apply the initial database schema with:
 ```bash
@@ -77,3 +81,5 @@ ENV TZ=Asia/Shanghai
 ```
 
 Now migrations would be auto-applied when the container starts, and you can use atlas command tool in you container with `--env docker` argument.
+
+{{% /steps %}}
