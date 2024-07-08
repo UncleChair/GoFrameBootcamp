@@ -53,7 +53,7 @@ func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageR
 }
 ```
 
-Seem the logic is completed right? But actually, some error handling is missing. The `Save` method would return an error if the operation has some problems. So let's add some extra info when this happened.
+Seems the logic is completed right? But actually, some error handling is missing. The `Save` method would return an error if the operation has some problems. So let's add some extra info when this happened.
 
 {{< tabs items="dao,g.DB" >}}
 {{< tab >}}
