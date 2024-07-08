@@ -20,7 +20,7 @@ In the controller file we generated before:
 {{< tab >}}
 ```go {filename="internal/controller/message/message_v1_create_message.go",hl_lines=[2]}
 func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageReq) (res *v1.CreateMessageRes, err error) {
-	dao.Users.Ctx(ctx).Save(req)
+	dao.Messages.Ctx(ctx).Save(req)
 	return
 }
 ```
@@ -43,7 +43,7 @@ Then we could fill some info in our response.
 
 ```go {filename="internal/controller/message/message_v1_create_message.go"}
 func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageReq) (res *v1.CreateMessageRes, err error) {
-	dao.Users.Ctx(ctx).Data(req).Save()
+	dao.Messages.Ctx(ctx).Data(req).Save()
 	res = &v1.CreateMessageRes{
 		Code:    0,
 		Data:    nil,
@@ -59,7 +59,7 @@ Seems the logic is completed right? But actually, some error handling is missing
 {{< tab >}}
 ```go {filename="internal/controller/message/message_v1_create_message.go",hl_lines=[2]}
 func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageReq) (res *v1.CreateMessageRes, err error) {
-	_, err = dao.Users.Ctx(ctx).Data(req).Save()
+	_, err = dao.Messages.Ctx(ctx).Data(req).Save()
 	res = &v1.CreateMessageRes{
 		Code:    0,
 		Data:    nil,
