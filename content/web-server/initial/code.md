@@ -7,11 +7,11 @@ next: web-server/authentication/
 
 Congratulations! Now you could run the project and see the result from your browser. 
 
-There are still somethings to do before we adding any features to the project. Don't worry, we will finish it very quickly.
+There are still something to do before we adding any features to the project. Don't worry, we will finish it very quickly.
 
-## Introduce database driver
+## Import database driver
 
-GoFrame has many [supported databases](https://github.com/gogf/gf/tree/master/contrib/drivers). But to use them, you need to introduce driver into your project first.
+GoFrame has many [supported databases](https://github.com/gogf/gf/tree/master/contrib/drivers). But to use them, you need to import drivers into your project first.
 
 Install database driver:
 
