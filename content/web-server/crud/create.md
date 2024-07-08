@@ -98,7 +98,7 @@ Now you have successfully finished the create message function. Let's have a tes
 
 {{< tabs items="Postman,curl" >}}
 {{< tab >}}
-POST `http://localhost:8000/message`
+POST `http://localhost:8000/messages`
 
 ```json
 {
@@ -109,7 +109,7 @@ POST `http://localhost:8000/message`
 {{< /tab >}}
 {{< tab >}}
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/message"
+curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/messages"
 ```
 {{< /tab >}}
 {{< /tabs >}}

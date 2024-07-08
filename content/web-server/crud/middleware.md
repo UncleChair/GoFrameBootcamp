@@ -163,7 +163,7 @@ You could also mimic the original middleware to create your own response handler
 To use our middleware, we still need to bind it to our route. Open and change the middleware in route registration file `internal/cmd/cmd.go`:
 
 ```go {filename="internal/cmd/cmd.go",hl_lines=[2]}
-s.Group("/message", func(group *ghttp.RouterGroup) {
+s.Group("/messages", func(group *ghttp.RouterGroup) {
 	group.Middleware(service.Middleware().ResponseHandler)
 	group.Bind(
 		message.NewV1(),
@@ -175,7 +175,7 @@ Now you can have the same test we made before:
 
 {{< tabs items="Postman,curl" >}}
 {{< tab >}}
-POST `http://localhost:8000/message`
+POST `http://localhost:8000/messages`
 
 ```json
 {
@@ -186,7 +186,7 @@ POST `http://localhost:8000/message`
 {{< /tab >}}
 {{< tab >}}
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/message"
+curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/messages"
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -221,7 +221,7 @@ Remember to run `gf gen service` after you add the function.
 Then we could bind this middleware to our route:
 
 ```go {filename="internal/cmd/cmd.go",hl_lines=[4]}
-s.Group("/message", func(group *ghttp.RouterGroup) {
+s.Group("/messages", func(group *ghttp.RouterGroup) {
 	group.Middleware(
 		service.Middleware().ResponseHandler,
 		service.Middleware().Auth,
@@ -249,7 +249,7 @@ Use [http://localhost:8000/hello](http://localhost:8000/hello) to get your token
 
 {{< tabs items="Postman,curl" >}}
 {{< tab >}}
-POST `http://localhost:8000/message`
+POST `http://localhost:8000/messages`
 
 - Use `Authorization` with `Bearer` and `<your token>`
 - Or add `?token=<your token>` query in the url
@@ -263,7 +263,7 @@ POST `http://localhost:8000/message`
 {{< /tab >}}
 {{< tab >}}
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/message?token=<your token>"
+curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/messages?token=<your token>"
 ```
 {{< /tab >}}
 {{< /tabs >}}

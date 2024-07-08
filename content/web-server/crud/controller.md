@@ -114,7 +114,7 @@ s.Group("/", func(group *ghttp.RouterGroup) {
 We could add the `message` similarly:
 
 ```go {filename="internal/cmd/cmd.go"}
-s.Group("/message", func(group *ghttp.RouterGroup) {
+s.Group("/messages", func(group *ghttp.RouterGroup) {
 	group.Middleware(ghttp.MiddlewareHandlerResponse)
 	group.Bind(
 		message.NewV1(),
@@ -122,9 +122,9 @@ s.Group("/message", func(group *ghttp.RouterGroup) {
 })
 ```
 
-Since the `path` we set before is `/`, we need to add `message` to the route group when registering. You could also set the path in `api` structure to `/message`, and you can ignore the `message` here.
+Since the `path` we set before is `/`, we need to add `messages` to the route group when registering. You could also set the path in `api` structure to `/messages`, and you can ignore the `messages` here.
 
-{{% details title="route used for controller if api `path` is set to `/message`" closed="true" %}}
+{{% details title="route used for controller if api `path` is set to `/messages`" closed="true" %}}
 ```go {filename="internal/cmd/cmd.go"}
 s.Group("/", func(group *ghttp.RouterGroup) {
 	group.Middleware(ghttp.MiddlewareHandlerResponse)
@@ -142,7 +142,7 @@ Good job! You have successfully created your first API and registered the route.
 
 If you have used tools like `Postman`, you could test the API with the following request:
 
-POST `http://localhost:8000/message`
+POST `http://localhost:8000/messages`
 
 ```json
 {
@@ -154,7 +154,7 @@ POST `http://localhost:8000/message`
 Or use `curl` to test the API:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/message"
+curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/messages"
 ```
 
 You will see the `Not Implemented` response like this:
