@@ -19,7 +19,7 @@ import "github.com/gogf/gf/v2/frame/g"
 
 type Message struct {
 	Id      int    `json:"id"`
-	UserUId string `json:"user_uid" des:"Message sender ID" eg:"0000000000"`
+	UserUid string `json:"user_uid" des:"Message sender ID" eg:"0000000000"`
 	Content string `json:"content" des:"Message content" eg:"This is my first message."`
 }
 
@@ -49,7 +49,7 @@ func (c *ControllerV1) GetMessage(ctx context.Context, req *v1.GetMessageReq) (r
 	id := g.RequestFromCtx(ctx).GetRouter("id").Int()
 	g.Dump(id)
 	var message *v1.Message
-	dao.Users.Ctx(ctx).Where(g.Map{
+	dao.Messages.Ctx(ctx).Where(g.Map{
 		dao.Messages.Columns().Id: id,
 	}).Scan(&message)
 	res = &v1.GetMessageRes{
@@ -106,13 +106,13 @@ And you will get the response:
 
 ```json
 {
-  "code": 0,
-  "message": "Success",
-  "data": {
-    "id": 1,
-    "user_uid": "0000000000",
-    "content": "This is my first message."
-  }
+    "code": 0,
+    "message": "Success",
+    "data": {
+        "id": 1,
+        "user_uid": "0000000000",
+        "content": "This is my first message."
+    }
 }
 ```
 
@@ -122,4 +122,70 @@ If your API returns null, it means that the creation was not succeeded. You may 
 
 ## Get records
 
+It is also very simple to get multiple records. Try create your own API and add this structure to your API definition:
+
+```go
+type Messages []*Message
+```
+
+And you could also use the `Scan()` to get records:
+
+```go
+var messages v1.Messages
+dao.Messages.Ctx(ctx).Scan(&messages)
+```
+
+Have a test with it, you could get a similar response like this:
+
+```json
+{
+    "code": 0,
+    "message": "Success",
+    "data": [
+        {
+            "id": 1,
+            "user_uid": "0000000000",
+            "content": "This is my first message."
+        }
+    ]
+}
+```
+
 ## Get relations (experimental)
+
+Different from other frameworks, `GoFrame` did not provide `hasOne` or other relations. Its principle is to keep the data structure simple and easy to use. But if you want to get the relations, it is also very simple using the `with` function provided by `GoFrame`.
+
+Go back to the get a `Message` API definition, let's add a `user` structure first:
+
+```go {filename="api/message/v1/show.go"}
+type User struct {
+	g.Meta   `orm:"table:users"`
+	Uid      string `json:"uid" des:"User uid" eg:"0000000000"`
+	Username string `json:"username" des:"Username" eg:"admin"`
+}
+```
+
+We use the `g.Mate` to add the orm tag for the `User` structure, and then we could add relation in message structure:
+
+```go {filename="api/message/v1/show.go"}
+type Message struct {
+	Id      int    `json:"id"`
+	UserUId string `json:"user_uid" des:"Message sender ID" eg:"0000000000"`
+	Content string `json:"content" des:"Message content" eg:"This is my first message."`
+	User    *User  `orm:"with:uid=user_uid" json:"user" des:"Message sender"`
+}
+```
+
+The final step to use the relation in `Model` operations is to add a `with` in the method chain:
+
+```go {filename="internal/controller/message/message_v1_get_message.go"}
+dao.Messages.Ctx(ctx).WithAll().Where(g.Map{
+	dao.Messages.Columns().Id: id,
+}).Scan(&message)
+```
+
+Now try to get a message from the original api, you would get the addition user information in the response data.
+
+{{< callout type="info" >}}
+There are other usage for `with` function that could select certain relations in the methods chain, you could check it [here](https://goframe.org/pages/viewpage.action?pageId=7297190). Also, since it is an experimental function, only retrieve data was implemented now.
+{{< /callout >}}
