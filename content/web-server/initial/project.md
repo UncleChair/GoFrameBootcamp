@@ -280,7 +280,7 @@ RUN apk add --no-cache tzdata
 ENV TZ=Asia/Shanghai
 ```
 {{< callout type="warning" >}}
-The go apline image is missing timezone related packages, remember to set them at the end at the Dockerfile.
+The go apline image is missing timezone related packages, remember to set them at the end of the Dockerfile.
 {{< /callout >}}
 
 Then add the following settings to your `services` in `docker-compose.yaml` file:
