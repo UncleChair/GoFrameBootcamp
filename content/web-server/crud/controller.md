@@ -4,7 +4,7 @@ type: docs
 weight: 1
 ---
 
-Before we add any logic to our application, first we need a controller and its route. Remember the `hello` controller? You have used it in the previous chapter.
+Before we adding any logic to our application, first we need a controller and its route. Remember the `hello` controller? You have used it in the previous chapter.
 {{< filetree/container >}}
   {{< filetree/folder name="api" >}}
     {{< filetree/folder name="hello" >}}
@@ -85,10 +85,10 @@ done!
 And you will see its structure is similar to the `hello` controller auto-generated before.
 
 {{< callout type="info" >}}
-To avoid run this command every time after changing some code in `api` directory, you could use some auto-run plugin, like `Run on Save` in VSCode.
+To avoid running this command every time after changing some code in `api` directory, you could use some auto-run plugin, like `Run on Save` in VSCode.
 {{< /callout>}}
 
-Open the `internal\controller\message\message_v1_create_message.go`, you will see implementation of controller here:
+Open the `internal\controller\message\message_v1_create_message.go`, you will see the implementation of controller here:
 
 ```go
 func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageReq) (res *v1.CreateMessageRes, err error) {
