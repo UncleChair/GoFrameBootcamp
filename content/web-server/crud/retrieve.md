@@ -39,6 +39,32 @@ Since the `internal` files in Go can not be used out of the folder, we define a 
 
 Generate controller with `gf gen ctrl` and check it in [Swagger](http://localhost:8000/swagger#tag/Message/paths/~1messages~1:id/get).
 
+Add logic for getting a message in controller:
+```go {filename="internal\controller\message\message_v1_get_message.go"}
+func (c *ControllerV1) GetMessage(ctx context.Context, req *v1.GetMessageReq) (res *v1.GetMessageRes, err error) {
+	id := g.RequestFromCtx(ctx).GetRouter("id").Int()
+	g.Dump(id)
+	var message *v1.Message
+	dao.Users.Ctx(ctx).Where(g.Map{
+		dao.Messages.Columns().Id: id,
+	}).Scan(&message)
+	res = &v1.GetMessageRes{
+		Code:    0,
+		Data:    nil,
+		Message: "Success",
+	}
+	if message != nil {
+		res.Data = message
+	} else {
+		res.Code = 1
+		res.Message = "No message found"
+	}
+	return
+}
+```
+
+Remember how we set the path of the `get` API? It was `/:id`. So now we could get the message id from the router.
+
 Since we have registered the route for `message` before, we could just test this API:
 
 {{< tabs items="Postman,curl" >}}
@@ -54,7 +80,7 @@ GET `http://localhost:8000/messages/1` with your token
 {{< /tab >}}
 {{< tab >}}
 ```bash
-curl -X GET -H "Content-Type: application/json" -d '{"user_uid":"0000000000","content":"This is my first message."}' "http://localhost:8000/messages/1?token=<your token>"
+curl -X GET -H "Content-Type: application/json" "http://localhost:8000/messages/1?token=<your token>"
 ```
 {{< /tab >}}
 {{< /tabs >}}
