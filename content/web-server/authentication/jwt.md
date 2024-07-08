@@ -83,10 +83,10 @@ func Authenticator(ctx context.Context) (interface{}, error) {
 - **Timeout**: The duration of the JWT.
 - **MaxRefresh**: The maximum refresh time of a JWT.
 - **IdentityKey**: The key name of the identity in the JWT. Remember our `users` table created before? We should fill it with `uid`.
-- **TokenLookup**: The way to get the token from the request. With this settings we could get token from:
+- **TokenLookup**: The way to get the token from the request. With this setting we could get token from:
 	- `Authorization` in header
 	- `token` in query, like `url?token=xxx`
-- **TokenHeadName**: String before token in header. For example: `Bearer xxx`.
+- **TokenHeadName**: Strings before token in header. For example: `Bearer xxx`.
 - **TimeFunc**: The function to get current time. In most cases you don't need to change it.
 
 And the final four functions are used to handle some processes. We would implement those todo content in the next few steps.
@@ -244,6 +244,6 @@ func (c *ControllerV1) Hello(ctx context.Context, req *v1.HelloReq) (res *v1.Hel
 }
 ```
 
-Open your browser with [http://localhost/hello](http://localhost/hello), you will see the token generated from JWT service.
+Open your browser with [http://localhost:8000/hello](http://localhost:8000/hello), you will see the token generated from JWT service.
 
 Save the token for a while, we may use it in the next chapter.
