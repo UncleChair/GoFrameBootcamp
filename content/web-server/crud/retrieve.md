@@ -8,6 +8,8 @@ After calling the `create message` API, you can simply insert a record in your d
 
 ## Get a record
 
+### Create API structure
+
 First, let's add a API to get a messages by its `id`:
 
 ```go {filename="api/message/v1/show.go"}
@@ -34,8 +36,10 @@ type GetMessageRes struct {
 ```
 
 {{< callout type="info" >}}
-Since the `internal` files in Go can not be used out of the folder, we define a `Message` structure here to represent the information of a message. It is good for generating the OpenAPI documentation, but would increase the project complexity, since every API would need a full detailed structure of its response. You could also use the `Data` filed with `interface{}` and fill the data in the controller logic with `dao` generated before, but you will lose the detailed return data in your OpenAPI documentation.
+Since the `internal` files in Go can not be used out of the folder, we define a `Message` structure here to represent the information of a message. It is good for generating the OpenAPI documentation, but would increase the project complexity. You could also use the `Data` filed with `interface{}` and fill the data in the controller logic with `dao` generated before, but you will lose the detailed return data in your OpenAPI documentation.
 {{< /callout >}}
+
+### Add controller logic
 
 Generate controller with `gf gen ctrl` and check it in [Swagger](http://localhost:8000/swagger#tag/Message/paths/~1messages~1:id/get).
 
@@ -63,30 +67,59 @@ func (c *ControllerV1) GetMessage(ctx context.Context, req *v1.GetMessageReq) (r
 }
 ```
 
-Remember how we set the path of the `get` API? It was `/:id`. So now we could get the message id from the router.
+Remember how we set the path of the `get` API? It was `/:id`. So now we could get the message id from the router. The `g.Dump(id)` used here is to output stdout of the id, it is a convenient function provided by `GoFrame`.
 
-Since we have registered the route for `message` before, we could just test this API:
+Then we use the `dao` to get the message by `id`, the scan function here is used to auto-convert the result to the `Message` structure defined in API structure. You could also use other method like `One()` to get the result and fill them in the response.
+
+{{< callout type="info" >}}
+Although the `Scan()` is very convenient, you should use it carefully. It is using `reflection` to convert the structure and would consume resources. If you are doing a complex conversion, it is recommended to write an [`UnmarshalValue`](https://goframe.org/pages/viewpage.action?pageId=1114226) to improve the performance.
+{{< /callout >}}
+
+The response here would only have a HTTP status code `200`. If you prefer different status code when there is an error, you can add this when doing error handling:
+
+```go
+g.RequestFromCtx(ctx).Response.Status = 404
+```
+
+This would change the final status code to `404`. Or you could do error handling in your response handler middleware.
+
+{{< callout type="info" >}}
+If you are using different HTTP status code, the OpenAPI documentation need to be changed manually. Get the OpenAPI object with `g.Server().GetOpenApi()` and modify it after the server started.
+{{< /callout >}}
+
+### Test your API
+
+Since we have registered the route for `message` before, we could just test it:
 
 {{< tabs items="Postman,curl" >}}
 {{< tab >}}
 GET `http://localhost:8000/messages/1` with your token
-
-```json
-{
-  "user_uid": "0000000000",
-  "content": "This is my first message."
-}
-```
 {{< /tab >}}
 {{< tab >}}
 ```bash
-curl -X GET -H "Content-Type: application/json" "http://localhost:8000/messages/1?token=<your token>"
+curl -X GET "http://localhost:8000/messages/1?token=<your token>"
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
-## Get records
+And you will get the response:
 
-## Use a template
+```json
+{
+  "code": 0,
+  "message": "Success",
+  "data": {
+    "id": 1,
+    "user_uid": "0000000000",
+    "content": "This is my first message."
+  }
+}
+```
+
+{{< callout type="info" >}}
+If your API returns null, it means that the creation was not succeeded. You may go back to the creation part and check carefully to see where was the error.
+{{< /callout >}}
+
+## Get records
 
 ## Get relations (experimental)
