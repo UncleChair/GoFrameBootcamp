@@ -158,7 +158,7 @@ func (s *sMiddleware) ResponseHandler(r *ghttp.Request) {
 
 You could also mimic the original middleware to create your own response handler logic. But to be simple, we just return our response directly here. 
 
-### Register middleware
+### Bind middleware
 
 To use our middleware, we still need to bind it to our route. Open and change the middleware in route registration file `internal/cmd/cmd.go`:
 
