@@ -153,7 +153,7 @@ Have a test with it, you could get a similar response like this:
 
 ## Get relations (experimental)
 
-Different from other frameworks, `GoFrame` did not provide `hasOne` or other relations. Its principle is to keep the data structure simple and easy to use. But if you want to get the relations, it is also very simple using the `with` function provided by `GoFrame`.
+Different from other frameworks, `GoFrame` did not provide `hasOne` or other relations. Its principle is to keep the data structure simple and easy to use. But if you want to get the relations, it is also very easy to use the `with` function provided by `GoFrame`.
 
 Go back to the get a `Message` API definition, let's add a `user` structure first:
 

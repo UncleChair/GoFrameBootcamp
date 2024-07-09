@@ -72,8 +72,8 @@ CREATE TABLE IF NOT EXISTS `users`
 CREATE TABLE IF NOT EXISTS `messages`
 (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Message ID',
-    `user_uid`  varchar(10) NOT NULL UNIQUE COMMENT 'Message Sender Uid',
-    `content`  varchar(100) NOT NULL UNIQUE COMMENT 'Message Content',
+    `user_uid`  varchar(10) NOT NULL COMMENT 'Message Sender Uid',
+    `content`  varchar(100) NOT NULL COMMENT 'Message Content',
     `created_at` datetime DEFAULT NULL COMMENT 'Created Time',
     `updated_at` datetime DEFAULT NULL COMMENT 'Updated Time',
     `deleted_at` datetime DEFAULT NULL COMMENT 'Soft deleted Time',
