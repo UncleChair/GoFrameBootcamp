@@ -124,6 +124,11 @@ Check the data with:
 SELECT * FROM `users`;
 ```
 
+| uid         | username    | password    |
+| ----------- | ----------- | ----------- |
+| 0000000000  | admin       | 123456      |
+
 {{< callout type="info" >}}
-This record is needed for CRUD operations, since we have added `FOREIGN KEY` in `messages` table.
+- Saving password without encryption is not recommended, you could add your it later.
+- This record is needed for CRUD operations, since we have added `FOREIGN KEY` in `messages` table.
 {{< /callout>}}
