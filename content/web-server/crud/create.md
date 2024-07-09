@@ -37,6 +37,10 @@ func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageR
 
 `dao` or `g.DB` used here has similar function, just create a model and do some data saving. You may find all methods for `Model` [here](https://pkg.go.dev/github.com/gogf/gf/v2/database/gdb#Model).
 
+{{< callout type="warning" >}}
+In most case, you can use `Save()` to insert data into database. But for some database like `clickhouse`, `Save()` method was not supported, you may use `Insert()` instead. Check support methods for databases [here](https://goframe.org/pages/viewpage.action?pageId=1114699)
+{{< /callout>}}
+
 ## Fill response
 
 Then we could fill some info in our response.
