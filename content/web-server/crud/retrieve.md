@@ -184,7 +184,23 @@ dao.Messages.Ctx(ctx).WithAll().Where(g.Map{
 }).Scan(&message)
 ```
 
-Now try to get a message from the original api, you would get the addition user information in the response data.
+Now try to get a message from the original api, you would get the additional user information in the response data.
+
+```json
+{
+    "code": 0,
+    "message": "Success",
+    "data": {
+        "id": 1,
+        "user_uid": "0000000000",
+        "content": "This is my first message.",
+        "user": {
+            "uid": "0000000000",
+            "username": "admin"
+        }
+    }
+}
+```
 
 {{< callout type="info" >}}
 There are other usage for `with` function that could select certain relations in the methods chain, you could check it [here](https://goframe.org/pages/viewpage.action?pageId=7297190). Also, since it is an experimental function, only retrieve data was implemented now.
