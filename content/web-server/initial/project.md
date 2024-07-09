@@ -265,16 +265,17 @@ After finishing all the configurations, finally we could start setting the conta
 
 Create a `Dockerfile` in your project folder:
 ```dockerfile {filename="Dockerfile"}
-FROM golang:1.22-alpine as base
-FROM base as dev
-WORKDIR /var/www
-
-CMD wget -O gf "https://github.com/gogf/gf/releases/latest/download/gf_$(go env GOOS)_$(go env GOARCH)" && \
+FROM golang:1.22-alpine as builder
+WORKDIR /tmp
+RUN wget -O gf "https://github.com/gogf/gf/releases/latest/download/gf_$(go env GOOS)_$(go env GOARCH)" && \
     chmod +x gf && \
     ./gf install -y && \
-    rm ./gf && \
-    gf run main.go
+    rm ./gf
 
+FROM golang:1.22-alpine as dev
+WORKDIR /var/www
+COPY --from=builder /go/bin/gf /go/bin/gf
+CMD gf run main.go
 ENV DEBIAN_FRONTEND noninteractive
 RUN apk add --no-cache tzdata
 ENV TZ=Asia/Shanghai
