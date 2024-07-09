@@ -50,7 +50,7 @@ import "github.com/gogf/gf/v2/frame/g"
 
 type CreateMessageReq struct {
 	g.Meta  `path:"/" tags:"Message" method:"post" sum:"Create a message"`
-	UserUId string `json:"user_uid" v:"required|size:10" des:"Message sender ID" eg:"0000000000"`
+	UserUid string `json:"user_uid" v:"required|size:10" des:"Message sender ID" eg:"0000000000"`
 	Content string `json:"content" v:"required|length:1,100" des:"Message content" eg:"This is my first message."`
 }
 

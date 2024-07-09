@@ -170,7 +170,7 @@ We use the `g.Mate` to add the orm tag for the `User` structure, and then we cou
 ```go {filename="api/message/v1/show.go"}
 type Message struct {
 	Id      int    `json:"id"`
-	UserUId string `json:"user_uid" des:"Message sender ID" eg:"0000000000"`
+	UserUid string `json:"user_uid" des:"Message sender ID" eg:"0000000000"`
 	Content string `json:"content" des:"Message content" eg:"This is my first message."`
 	User    *User  `orm:"with:uid=user_uid" json:"user" des:"Message sender"`
 }
