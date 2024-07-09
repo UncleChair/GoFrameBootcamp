@@ -18,16 +18,20 @@ markup:
 
 menu:
   main:
-    - name: Official Docs
+    - identifier: officialDoc
+      name: Official Docs
       url: "https://goframe.org"
       weight: 1
-    - name: WebServer
+    - identifier: webServer
+      name: WebServer
       pageRef: /web-server/
       weight: 2
-    - name: About
+    - identifier: about
+      name: About
       pageRef: /about
       weight: 3
-    - name: Contact ↗
+    - identifier: contact
+      name: Contact ↗
       url: "https://github.com/UncleChair"
       weight: 4
     - name: Search
