@@ -59,7 +59,7 @@ func main() {
 
 我们曾提过 `gf` 有很多强大的代码生成功能。现在我们将使用之前配置好的 `gf gen dao` 来生成数据访问对象。
 
-Depend on your previous settings, you may use this command in your docker container or your local machine, and it will generate related code automatically.
+根据之前设置的不同，你可以在docker容器内或本地机器中运行该命令，它将自动生成相关代码。
 ```
 $ gf gen dao
 generated: internal\dao\internal\messages.go
@@ -72,5 +72,5 @@ done!
 ```
 
 {{< callout type="info" >}}
-If there are any changes with database schema, you could run `gf gen dao` again to refresh the DAO related code.
+如果数据库结构有任何变化，你可以再次运行 `gf gen dao` 来刷新 DAO 相关的代码。
 {{< /callout >}}
