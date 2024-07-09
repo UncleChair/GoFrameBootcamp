@@ -129,6 +129,6 @@ SELECT * FROM `users`;
 | 0000000000  | admin       | 123456      |
 
 {{< callout type="info" >}}
-- Saving password without encryption is not recommended, you could add your it later.
+- Saving password without encryption is not recommended, you could add it later.
 - This record is needed for CRUD operations, since we have added `FOREIGN KEY` in `messages` table.
 {{< /callout>}}
