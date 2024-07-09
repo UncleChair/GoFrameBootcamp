@@ -28,7 +28,7 @@ func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageR
 {{< tab >}}
 ```go {filename="internal/controller/message/message_v1_create_message.go",hl_lines=[2]}
 func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageReq) (res *v1.CreateMessageRes, err error) {
-	g.DB().Model("users").Save(req)
+	g.DB().Model("messages").Save(req)
 	return
 }
 ```
@@ -76,7 +76,7 @@ func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageR
 {{< tab >}}
 ```go {filename="internal/controller/message/message_v1_create_message.go",hl_lines=[2]}
 func (c *ControllerV1) CreateMessage(ctx context.Context, req *v1.CreateMessageReq) (res *v1.CreateMessageRes, err error) {
-	_, err = g.DB().Model("users").Save(req)
+	_, err = g.DB().Model("messages").Save(req)
 	res = &v1.CreateMessageRes{
 		Code:    0,
 		Data:    nil,
