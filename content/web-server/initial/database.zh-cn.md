@@ -130,5 +130,5 @@ SELECT * FROM `users`;
 
 {{< callout type="info" >}}
 - 不推荐储存明文密码，你可以稍后添加你的加密算法。
-- 本条记录是删增改查部分需要的，因为我们在 `messages` 表中添加了 `FOREIGN KEY`。
+- 本条记录是增删改查部分需要的，因为我们在 `messages` 表中添加了 `FOREIGN KEY`。
 {{< /callout>}}
