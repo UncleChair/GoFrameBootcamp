@@ -4,7 +4,6 @@
 
 # Outline
 
-Content todo list:
 - [x] Chapter 1: Installation
     - [x] Go
     - [x] Docker
@@ -17,19 +16,19 @@ Content todo list:
     - [x] Code
 - [x] Chapter 3: Authentication
     - [x] JWT
-    - [ ] Session
+    - [x] Session
 - [x] Chapter 4: Start with CRUD
-    - [ ] Add a controller
-    - [ ] Create a message
-    - [ ] Retrieve a message
-    - [ ] Add a middleware
-    - [ ] Update a message
-    - [ ] Delete a message
-- [ ] Chapter 5: Deploying
-    - [ ] Daemon
-    - [ ] Docker
-    - [ ] Nginx
-- [ ] Chapter 6: Conclusion
+    - [x] Add a controller
+    - [x] Create a message
+    - [x] Retrieve a message
+    - [x] Add a middleware
+    - [x] Update a message
+    - [x] Delete a message
+- [x] Chapter 5: Deploying
+    - [x] Daemon
+    - [x] Docker
+    - [x] Nginx
+- [x] Chapter 6: Conclusion
 - [x] Chapter 7: Additional Resources
     - [ ] Design Methodology
     - [x] Database Schema Control
