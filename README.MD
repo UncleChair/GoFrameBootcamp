@@ -1,13 +1,18 @@
-# GoFrame Bootcamp
+<div align="center">
+  <h1>GoFrame Bootcamp</h1>
 
-`GoFrame` is a powerful framework of Golang. This project is aming to provide a guideline for rookies to create a simple but fully-functional web server application.
+**English** | [**简体中文**](./README_zh-CN.MD)
+
+`GoFrame` is a powerful framework of Golang. This project is aiming to provide a guideline for rookies to create a simple but fully-functional web server application.
+</div>
+<br/>
 
 # Outline
 
 - [x] Chapter 1: Installation
     - [x] Go
-    - [x] Docker
     - [x] GoFrame CLI
+    - [x] Docker
     - [x] Database
         - [x] MariaDB
 - [x] Chapter 2: Initialization
@@ -16,7 +21,7 @@
     - [x] Code
 - [x] Chapter 3: Authentication
     - [x] JWT
-    - [x] Session
+    - [ ] Session
 - [x] Chapter 4: Start with CRUD
     - [x] Add a controller
     - [x] Create a message
@@ -39,7 +44,7 @@
 
 # Contributors
 
-This project exists thanks to all the people who contribute. [[Contributors](https://github.com/UncleChair/GoFrameBootcamp/graphs/contributors)].
+This project exists thanks to all the people who [contribute](https://github.com/UncleChair/GoFrameBootcamp/graphs/contributors)
 
 <a href="https://github.com/UncleChair/GoFrameBootcamp/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=UncleChair/GoFrameBootcamp" /></a>
 
