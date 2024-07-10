@@ -12,7 +12,7 @@ In the `RESTful` way, your route should be `PUT /messages/:id`.
 
 ## Update a record
 
-To update the record, we need to know the primary key of the it. So the `id` in the route could help us to identify.
+To update the record, we need to know the primary key of it. So the `id` in the route could help us to identify.
 
 ### Update
 

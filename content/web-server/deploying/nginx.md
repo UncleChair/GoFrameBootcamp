@@ -7,7 +7,7 @@ next: web-server/conclusion/
 
 [`Nginx`](https://nginx.org/en/) is a free, open-source, high-performance HTTP server and reverse proxy, you could use it to serve static files, configure SSL or create load balance service.
 
-Both `Daemon` mode and `Docker` mode we mentioned before is listening on a certain local port You could use `Nginx` to proxy some requests to them, and handle static files by itself.
+Both `Daemon` mode and `Docker` mode we mentioned before is listening on a certain local port. You could use `Nginx` to proxy some requests to them, and handle static files by itself.
 
 Here is an example config file:
 
