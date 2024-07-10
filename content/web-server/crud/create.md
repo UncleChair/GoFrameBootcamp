@@ -143,6 +143,6 @@ s.Group("your route", func(group *ghttp.RouterGroup) {
 })
 ```
 
-In this registration, we have added a middleware `ghttp.MiddlewareHandlerResponse` to handle the response. It contains some logic to user our data to generate the final response, which lead to this situation.
+In this registration, we have added a middleware `ghttp.MiddlewareHandlerResponse` to handle the response. It contains some logic to use our data to generate the final response, which lead to this situation.
 
 Let's create our own middleware to handle the response and add some additional functions to our route in the next part.
