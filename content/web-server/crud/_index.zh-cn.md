@@ -3,7 +3,7 @@ title: 开始增删改查
 weight: 4
 ---
 
-在本章节中，你将会学到更多关于控制器，服务，以及 `dao` 相关的操作。
+在本章节中，你将会学到更多关于控制器`controller`，服务`service`，以及数据操作对象 `dao` 相关的操作。
 
 {{< cards >}}
   {{< card link="controller" title="添加控制器" icon="document-text" subtitle="创建你的API接口" >}}
