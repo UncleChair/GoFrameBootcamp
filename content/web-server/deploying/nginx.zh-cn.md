@@ -2,6 +2,7 @@
 title: Nginx
 type: docs
 weight: 3
+prev: web-server/deploying/
 next: web-server/conclusion/
 ---
 

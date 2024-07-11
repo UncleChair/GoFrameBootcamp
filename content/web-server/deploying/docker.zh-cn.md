@@ -2,6 +2,8 @@
 title: Docker
 type: docs
 weight: 2
+prev: false
+next: web-server/deploying/nginx
 ---
 
 通过 docker 部署应用也是一个好选择。这样你就不需要再担心依赖问题或者环境设置了。

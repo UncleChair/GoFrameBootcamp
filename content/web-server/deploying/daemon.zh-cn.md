@@ -2,6 +2,8 @@
 title: 守护进程
 type: docs
 weight: 1
+prev: false
+next: web-server/deploying/nginx
 ---
 
 Go 开发的应用可以通过守护进程的方式部署。这也是部署简单的 API 服务器时常用的方式。接下来的例子中，我们使用了 Ubuntu 系统下的 `systemctl`。

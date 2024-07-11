@@ -2,6 +2,8 @@
 title: Docker
 type: docs
 weight: 2
+prev: false
+next: web-server/deploying/nginx
 ---
 
 Deploy your application with docker is also a good choice. You may not need to worry about dependence problem or environment settings.

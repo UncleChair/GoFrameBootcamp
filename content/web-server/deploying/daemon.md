@@ -2,6 +2,8 @@
 title: Daemon
 type: docs
 weight: 1
+prev: false
+next: web-server/deploying/nginx
 ---
 
 Application developed by go could be deployed with daemon mode. This is a common way when the application is a simple API server. The example here is using `systemctl` under Ubuntu.
