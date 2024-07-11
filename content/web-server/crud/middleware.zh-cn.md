@@ -267,3 +267,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","c
 {{< /tabs >}}
 
 你将看到成功的响应。
+
+{{< callout type="info" >}}
+如果你已经完成了测试并且不希望在后续的每次请求中都使用 token，也可以删除该中间件。
+{{< /callout>}}

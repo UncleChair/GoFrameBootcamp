@@ -269,3 +269,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"user_uid":"0000000000","c
 {{< /tabs >}}
 
 And you will see the success response.
+
+{{< callout type="info" >}}
+You could also remove the middleware if you have finished the test and don't want to send request with token every time in the following parts.
+{{< /callout>}}
