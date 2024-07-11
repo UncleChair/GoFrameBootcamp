@@ -9,6 +9,6 @@ weight: 3
 
 {{< cards >}}
   {{< card link="jwt" title="Json Web Token" icon="document-text" subtitle="低占用、无状态" >}}
-  <!-- {{< card link="session" title="Session" icon="document-text" subtitle="Built-in with GoFrame" >}} -->
+  {{< card link="session" title="Cookie与Session" icon="document-text" subtitle="经典方案" >}}
 {{< /cards >}}
 
