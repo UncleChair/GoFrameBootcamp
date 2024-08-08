@@ -1,4 +1,4 @@
-module github.com/imfing/hextra-starter-template
+module GoFrameBootcamp
 
 go 1.21
 

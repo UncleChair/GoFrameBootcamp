@@ -4,29 +4,11 @@ type: docs
 weight: 2
 ---
 
-With GoFrame CLI tools, we could create a new project quickly and then configure the compose file for docker.
-
-## Reminder
-
 {{< callout type="info" >}}
 Remember our database info in the previous part? We will use them here.
 - **Database**: bootcamp
 - **Username**: dbadmin
 - **Password**: Password
-{{< /callout >}}
-
-## Create project
-
-Use the following command to create your project:
-
-```bash
-gf init bootcamp -u
-```
-
-Or change the `bootcamp` to whatever you want for your project name.
-
-{{< callout type="info" >}}
-GoFrame project have its own folder structure, we may talk about some methodology later.
 {{< /callout >}}
 
 ## Configurations

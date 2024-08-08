@@ -4,6 +4,22 @@ type: docs
 weight: 1
 ---
 
+使用 GoFrame 命令行工具，我们可以快速创建一个新项目。然后我们将为 docker 配置 compose 文件。
+
+## 创建项目
+
+使用以下命令创建你的项目：
+
+```bash
+gf init bootcamp -u
+```
+
+或者将 `bootcamp` 替换为你想创建的项目名称。
+
+{{< callout type="info" >}}
+GoFrame 项目拥有自己的工程结构，稍后我们会讨论一些有关的方法论。
+{{< /callout >}}
+
 在 `manifest` 文件夹下创建一个 `database` 文件夹，你可以在这里存储和数据库相关代码或设置。
 
 ## 设置
