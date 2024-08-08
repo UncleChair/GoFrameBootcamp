@@ -92,11 +92,16 @@ func (c *ControllerV1) Hello(ctx context.Context, req *v1.HelloReq) (res *v1.Hel
 	r := g.RequestFromCtx(ctx)
 	sessionID := GenerateSessionId(r)
 	r.Cookie.SetSessionId(sessionID)
+	r.Session.SetId(SessionId)
 	r.Session.Set("SessionId "+sessionID, "Here is your secret data")
 	r.Response.Write(r.Session.Data())
 	return
 }
 ```
+{{< callout type="info" >}}
+Using `r.Cookie.SetSessionId()` method would not change current session id. Try `r.Session.Id()` method to get the session id, you will find it is different from the generated one.
+{{< /callout >}}
+
 
 Now test this link [http://localhost:8000/hello](http://localhost:8000/hello) again, you will find the session id would change and you could get data from related session.
 

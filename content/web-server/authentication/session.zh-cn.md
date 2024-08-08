@@ -92,11 +92,16 @@ func (c *ControllerV1) Hello(ctx context.Context, req *v1.HelloReq) (res *v1.Hel
 	r := g.RequestFromCtx(ctx)
 	sessionID := GenerateSessionId(r)
 	r.Cookie.SetSessionId(sessionID)
+	r.Session.SetId(SessionId)
 	r.Session.Set("SessionId "+sessionID, "Here is your secret data")
 	r.Response.Write(r.Session.Data())
 	return
 }
 ```
+
+{{< callout type="info" >}}
+需要注意的是，使用 `r.Cookie.SetSessionId()` 方法并不会改变当前的 session id，尝试用 `r.Session.Id()` 方法获取id，你会发现它和我们当前生成的并不一致。
+{{< /callout >}}
 
 再次测试这个链接 [http://localhost:8000/hello](http://localhost:8000/hello)，你会发现session id会产生变化并且能够获取到对应 session 的数据。
 
