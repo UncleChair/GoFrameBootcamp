@@ -12,3 +12,8 @@ weight: 3
   {{< card link="session" title="Cookie与Session" icon="document-text" subtitle="经典方案" >}}
 {{< /cards >}}
 
+另外，如果你希望更精确地控制资源权限，或者基于用户角色进行访问控制，可以查看以下内容：
+
+{{< cards >}}
+  {{< card link="../additional/acl" title="访问控制" icon="document-text" subtitle="控制用户行为" >}}
+{{< /cards >}}
