@@ -55,18 +55,73 @@ type CreateMessageReq struct {
 }
 
 type CreateMessageRes struct {
-	g.Meta  `mime:"application/json"`
+	g.Meta  `status:"201" mime:"application/json"`
 	Code    int         `json:"code" v:"required" des:"Status code" eg:"0"`
 	Message string      `json:"message" v:"required" des:"Status message" eg:"Success"`
 	Data    interface{} `json:"data"`
 }
-```
 
-The [`g.Meta`](https://pkg.go.dev/github.com/gogf/gf/v2/util/gmeta) here is used to add additional attributes to `Request` or `Response`. For this request, `path` is used to define the route, `tags` is used to set group in `OpenAPI` documentation, `method` is used to declare the accept HTTP method and `sum` is used to add summary to the route. And for the response, `mime` is just used to set the response content type.
+type CreateMessageRes500 struct{
+	g.Meta  `resEg:"your_path/example.json"`
+}
+
+func (r CreateMessageRes) ResponseStatusMap() map[goai.StatusCode]any {
+	return map[goai.StatusCode]any{
+		500: CreateMessageRes500{},
+	}
+}
+
+```
+The [`g.Meta`](https://pkg.go.dev/github.com/gogf/gf/v2/util/gmeta) here is used to add additional attributes to `Request` or `Response`. For this request, `path` is used to define the route, `tags` is used to set group in `OpenAPI` documentation, `method` is used to declare the accept HTTP method and `sum` is used to add summary to the route. And for the response, `status` is used to set the default response status code, `mime` is just used to set the response content type.
+
+Here we also define the `500` response structure, where the `resEg` tag (abbreviation for `responseExample`) is used to set the path of the response example file. Currently, the available `example` json file formats can be the following two types:
+
+{{< tabs items="Array,Object" >}}
+{{< tab >}}
+```json {filename="example.json"}
+[
+  {
+    "code": 0,
+    "message": "Success",
+	"data": null
+  },
+  {
+    "code": 1,
+    "message": "Internal Server Error",
+	"data": null
+  }
+]
+```
+{{< /tab >}}
+{{< tab >}}
+```json {filename="example.json"}
+{
+	"success": {
+		"code": 0,
+		"message": "Success",
+		"data": null
+	},
+	"error": {
+		"code": 1,
+		"message": "Internal Server Error",
+		"data": null
+	}
+}
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+`Array` type will automatically add `example` name according to the order, while `Object` type can be manually specified.
+
+As long as the response structure implements the `goai.ResponseStatusDef` interface (adds the `ResponseStatusMap` method), it can automatically add additional response status codes and response structures during the document generation process. If the response structure contains any `fields` or sets the `mime` tag, it will automatically override the default content in `OpenAPI` documentation (usually it is some common response structures added automatically).
 
 Tags in structure could not only be used to generate `OpenAPI` documentation, but also to validate data or transform data. For example, `v` tag could be used to validate data in request. For our request here, the `UserUID` is set to be required and the length should be 10, similar for other fields. Documentation for validation [here](https://goframe.org/pages/viewpage.action?pageId=1114678).
 
-Those tags seems a little confusing, but don't worry, you will see their function clearly soon after we register the route. Or you could also find more details for `gtag` [here](https://github.com/gogf/gf/blob/master/util/gtag/gtag.go).
+Those contents seem a little confusing, but don't worry, you will see their function clearly soon after we register the route. Or you could also find more details for `gtag` [here](https://github.com/gogf/gf/blob/master/util/gtag/gtag.go).
+
+{{< callout type="info" >}}
+`status` `resEg` `responseExample` tags and the `ResponseStatusMap` method of response structure are available since `v2.8.0`.
+{{< /callout >}}
 
 ## Generate Controller
 

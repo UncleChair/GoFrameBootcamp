@@ -55,17 +55,74 @@ type CreateMessageReq struct {
 }
 
 type CreateMessageRes struct {
-	g.Meta  `mime:"application/json"`
+	g.Meta  `status:"201" mime:"application/json"`
 	Code    int         `json:"code" v:"required" des:"状态码" eg:"0"`
 	Message string      `json:"message" v:"required" des:"状态消息" eg:"Success"`
 	Data    interface{} `json:"data"`
 }
+
+type CreateMessageRes500 struct{
+	g.Meta  `resEg:"your_path/example.json"`
+}
+
+func (r CreateMessageRes) ResponseStatusMap() map[goai.StatusCode]any {
+	return map[goai.StatusCode]any{
+		500: CreateMessageRes500{},
+	}
+}
+
 ```
-这里使用的 [`g.Meta`](https://pkg.go.dev/github.com/gogf/gf/v2/util/gmeta) 可以为 `请求` 或 `响应` 添加额外的属性。对于这里的请求，`path` 用于定义路由，`tags` 用于设置 `OpenAPI` 文档中的分组，`method` 用于声明接受的 HTTP 方法，而 `sum` 用于添加路由摘要。对于这里的响应，`mime` 用于设置响应内容的类型。
+这里使用的 [`g.Meta`](https://pkg.go.dev/github.com/gogf/gf/v2/util/gmeta) 可以为 `请求` 或 `响应` 添加额外的属性。对于这里的请求，`path` 用于定义路由，`tags` 用于设置 `OpenAPI` 文档中的分组，`method` 用于声明接受的 HTTP 方法，而 `sum` 用于添加路由摘要。对于这里的响应，`status` 用于设置默认响应状态码，`mime` 用于设置响应内容的类型。
+
+在这里我们也定义了`500`响应的结构体，其中使用的 `resEg` 标签（`responseExample` 的缩写） 用于设置响应示例文件的路径。目前可以使用的 `example` json文件格式可以为以下两种：
+
+{{< tabs items="Array,Object" >}}
+{{< tab >}}
+```json {filename="example.json"}
+[
+  {
+    "code": 0,
+    "message": "Success",
+	"data": null
+  },
+  {
+    "code": 1,
+    "message": "Internal Server Error",
+	"data": null
+  }
+]
+```
+{{< /tab >}}
+{{< tab >}}
+```json {filename="example.json"}
+{
+	"success": {
+		"code": 0,
+		"message": "Success",
+		"data": null
+	},
+	"error": {
+		"code": 1,
+		"message": "Internal Server Error",
+		"data": null
+	}
+}
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+数组格式将会根据顺序自动添加 `example` 名称，而对象格式则可以手动指定。
+
+只要为响应结构体实现 `goai.ResponseStatusDef` 接口，即添加 `ResponseStatusMap` 方法，就可以在文档的生成过程中自动添加额外的响应状态码和响应结构体。如果添加的响应结构体包含任何字段或设置了 `mime` 标签，它将会自动覆盖 `OpenAPI` 文档中的默认内容（一般情况下是自动添加的某些通用响应结构体）。
 
 结构体中的标签不仅可以用于自动生成 `OpenAPI` 文档，还可以用于验证或转换数据。例如，`v` 标签可用于验证请求中的数据。对于我们的请求，`UserUID` 被设置为必需且长度为10，其他字段类似。你可以在[这里](https://goframe.org/pages/viewpage.action?pageId=1114678)找到更多有关数据验证的信息。
 
-这些标签看起来有些不好理解，不过不用担心，在注册路由后你就能清楚地看到它们的功能了。或者你也可以在[这里](https://github.com/gogf/gf/blob/master/util/gtag/gtag.go)找到更多有关 `gtag` 的细节。
+这些内容看起来有些不好理解，不过不用担心，在注册路由后你就能清楚地看到它们的功能了。或者你也可以在[这里](https://github.com/gogf/gf/blob/master/util/gtag/gtag.go)找到更多有关 `gtag` 的细节。
+
+
+{{< callout type="info" >}}
+`status` `resEg` `responseExample` 标签和响应结构体的 `ResponseStatusMap` 方法自 `v2.8.0` 版本起可用。
+{{< /callout >}}
 
 ## 生成控制器
 
