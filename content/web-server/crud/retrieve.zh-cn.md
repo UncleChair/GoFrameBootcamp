@@ -84,7 +84,7 @@ g.RequestFromCtx(ctx).Response.Status = 404
 它会把最终的 HTTP 状态码设置为 `404`，你也可以在响应处理中间件中做类似的错误处理。
 
 {{< callout type="info" >}}
-如果使用了不同的 HTTP 状态码，你也需要手动修改 OpenAPI 文档。可以使用 `g.Server().GetOpenApi()` 来获取 OpenAPI 对象，然后在 web 服务启动后修改它。
+在 `v2.8.0` 版本之前，如果使用了不同的 HTTP 状态码，你需要手动修改 OpenAPI 文档。可以使用 `g.Server().GetOpenApi()` 来获取 OpenAPI 对象，然后在 web 服务启动后修改它。而在 `v2.8.0` 版本后，你可以使用 `status` 标签和 `ResponseStatusMap` 方法来设置不同的 HTTP 状态码。
 {{< /callout >}}
 
 ### 测试

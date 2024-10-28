@@ -84,7 +84,7 @@ g.RequestFromCtx(ctx).Response.Status = 404
 This would change the final status code to `404`. Or you could do error handling in your response handler middleware.
 
 {{< callout type="info" >}}
-If you are using different HTTP status code, the OpenAPI documentation need to be changed manually. Get the OpenAPI object with `g.Server().GetOpenApi()` and modify it after the server started.
+Before `v2.8.0`, if you are using different HTTP status code, the OpenAPI documentation need to be changed manually. Get the OpenAPI object with `g.Server().GetOpenApi()` and modify it after the server started. After `v2.8.0`, you could use the `status` tag and `ResponseStatusMap` method to set different HTTP status code.
 {{< /callout >}}
 
 ### Test your API
