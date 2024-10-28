@@ -21,7 +21,7 @@
     - [x] Code
 - [x] Chapter 3: Authentication
     - [x] JWT
-    - [ ] Session
+    - [x] Session
 - [x] Chapter 4: Start with CRUD
     - [x] Add a controller
     - [x] Create a message
@@ -37,7 +37,7 @@
 - [x] Chapter 7: Additional Resources
     - [ ] Design Methodology
     - [x] Database Schema Control
-    - [ ] Access Control
+    - [x] Access Control
     - [ ] Mail Server
     - [ ] Message Queue
 
