@@ -113,7 +113,7 @@ Here we also define the `500` response structure, where the `resEg` tag (abbrevi
 
 `Array` type will automatically add `example` name according to the order, while `Object` type can be manually specified.
 
-As long as the response structure implements the `goai.ResponseStatusDef` interface (adds the `ResponseStatusMap` method), it can automatically add additional response status codes and response structures during the document generation process. If the response structure contains any `fields` or sets the `mime` tag, it will automatically override the default content in `OpenAPI` documentation (usually it is some common response structures added automatically).
+As long as the response structure implements the `goai.IEnhanceResponseStatus` interface (adds the `EnhanceResponseStatus` method), it can automatically add additional response status codes and response structures during the document generation process. If the response structure contains any `fields` or sets the `mime` tag, it will automatically override the default content in `OpenAPI` documentation (usually it is some common response structures added automatically).
 
 Tags in structure could not only be used to generate `OpenAPI` documentation, but also to validate data or transform data. For example, `v` tag could be used to validate data in request. For our request here, the `UserUID` is set to be required and the length should be 10, similar for other fields. Documentation for validation [here](https://goframe.org/pages/viewpage.action?pageId=1114678).
 

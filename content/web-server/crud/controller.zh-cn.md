@@ -113,7 +113,7 @@ func (r CreateMessageRes) ResponseStatusMap() map[goai.StatusCode]any {
 
 数组格式将会根据顺序自动添加 `example` 名称，而对象格式则可以手动指定。
 
-只要为响应结构体实现 `goai.ResponseStatusDef` 接口，即添加 `ResponseStatusMap` 方法，就可以在文档的生成过程中自动添加额外的响应状态码和响应结构体。如果添加的响应结构体包含任何字段或设置了 `mime` 标签，它将会自动覆盖 `OpenAPI` 文档中的默认内容（一般情况下是自动添加的某些通用响应结构体）。
+只要为响应结构体实现 `goai.IEnhanceResponseStatus` 接口，即添加 `EnhanceResponseStatus` 方法，就可以在文档的生成过程中自动添加额外的响应状态码和响应结构体。如果添加的响应结构体包含任何字段或设置了 `mime` 标签，它将会自动覆盖 `OpenAPI` 文档中的默认内容（一般情况下是自动添加的某些通用响应结构体）。
 
 结构体中的标签不仅可以用于自动生成 `OpenAPI` 文档，还可以用于验证或转换数据。例如，`v` 标签可用于验证请求中的数据。对于我们的请求，`UserUID` 被设置为必需且长度为10，其他字段类似。你可以在[这里](https://goframe.org/pages/viewpage.action?pageId=1114678)找到更多有关数据验证的信息。
 
