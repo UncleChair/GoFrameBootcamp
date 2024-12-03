@@ -71,7 +71,7 @@ Using root account is not recommended
 
 Since GoFrame is an enterprise-class framework, its design principle is not allowing  developers to change schema when developing. Therefore, we need to create a database schema first. You may also find other project for database schema management:
 {{< cards >}}
-  {{< card link="../additional/schema" title="Schema management" icon="document-text" subtitle="Migration when developing" >}}
+  {{< card link="../../additional/schema" title="Schema management" icon="document-text" subtitle="Migration when developing" >}}
 {{< /cards >}}
 
 For simplicity, we will just use the following SQL to create the schema first, you may discover other methods later:
