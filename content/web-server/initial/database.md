@@ -20,6 +20,10 @@ Or change the `bootcamp` to whatever you want for your project name.
 GoFrame project have its own folder structure, we may talk about some methodology later.
 {{< /callout >}}
 
+{{< cards >}}
+  {{< card link="../../additional/design" title="Design methodology" icon="document-text" subtitle="Structure of the project" >}}
+{{< /cards >}}
+
 Create a `database` folder in `manifest` folder, you can store you database related code or settings here.
 
 ## Setup

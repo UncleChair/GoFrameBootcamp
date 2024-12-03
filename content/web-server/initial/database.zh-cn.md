@@ -20,6 +20,10 @@ gf init bootcamp -u
 GoFrame 项目拥有自己的工程结构，稍后我们会讨论一些有关的方法论。
 {{< /callout >}}
 
+{{< cards >}}
+  {{< card link="../../additional/design" title="设计方法论" icon="document-text" subtitle="项目结构设计" >}}
+{{< /cards >}}
+
 在 `manifest` 文件夹下创建一个 `database` 文件夹，你可以在这里存储和数据库相关代码或设置。
 
 ## 设置
