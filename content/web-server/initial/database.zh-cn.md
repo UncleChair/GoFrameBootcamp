@@ -71,7 +71,7 @@ volumes:
 
 由于 GoFrame 是一款企业级的框架，它的设计原则就是不允许开发者在开发时自行修改数据库结构。因此我们需要先确定数据库结构。你也可以找到其他用于管理数据库结构的项目:
 {{< cards >}}
-  {{< card link="/web-server/additional/schema" title="数据库结构管理" icon="document-text" subtitle="开发时的数据库迁移" >}}
+  {{< card link="../additional/schema" title="数据库结构管理" icon="document-text" subtitle="开发时的数据库迁移" >}}
 {{< /cards >}}
 
 为保简洁，我们将使用以下 SQL 创建数据库结构，你可以稍后自行探索其他方法：
