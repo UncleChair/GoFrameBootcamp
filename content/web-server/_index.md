@@ -12,6 +12,8 @@ __GoFrame__ have its official documentation, which is very detailed and well-org
 
 [GoFrame](https://github.com/gogf/gf) is a modular, powerful, high-performance and enterprise-class application development framework of Golang. It could not only create web application, but also have many other usages, you may find [official documentation](https://goframe.org/) if you are interested in framework details.
 
+In this tutorial, beside the basic usage of GoFrame, you will also learn some common web development technologies, such as `Docker` and `Nginx`.
+
 ## Questions or Feedback?
 
 {{< callout emoji="❓" >}}
